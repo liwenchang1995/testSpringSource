@@ -2,10 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/aop
-        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd" >
+       http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.0.xsd" >
     <bean id="loginService" class="spring.service.imp.LoginService">
         <property name="loginDao" ref="loginDao">
 
@@ -20,6 +23,15 @@
     <bean id="logAspect" class="spring.service.imp.LogService">
     </bean>
 
+    <!-- 开启spring注解扫描组件 -->
+    <!-- base-packge指定要扫描的基类包,扫描多个包用逗号分隔-->
+    <!-- resource-pattern指定要要扫描的目标类-->
+    <!-- context:exclude-filter 排除指定的类-->
+    <!-- context:include-filter 包含指定的类-->
+    <context:component-scan base-package="spring.annotation" resource-pattern="*.class">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"></context:exclude-filter>
+    </context:component-scan>
+
     <!-- aop相关的配置和说明 -->
     <aop:config proxy-target-class="true">
         <!-- 定义相关的切面 -->
@@ -30,5 +42,8 @@
             <aop:after pointcut-ref="transactionPointCut" method="afterMethod"/>
         </aop:aspect>
     </aop:config>
+
+
+
 
 </beans>
