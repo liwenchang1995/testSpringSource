@@ -91,6 +91,12 @@
           <artifactId>mysql-connector-java</artifactId>
           <version>5.1.38</version>
       </dependency>
+      <!-- https://mvnrepository.com/artifact/com.alibaba/druid -->
+      <dependency>
+          <groupId>com.alibaba</groupId>
+          <artifactId>druid</artifactId>
+          <version>1.1.10</version>
+      </dependency>
       <!--log4j日志包 -->
       <dependency>
           <groupId>org.apache.logging.log4j</groupId>
@@ -108,12 +114,6 @@
           <groupId>org.aspectj</groupId>
           <artifactId>aspectjweaver</artifactId>
           <version>1.8.9</version>
-      </dependency>
-      <!-- jstl -->
-      <dependency>
-          <groupId>javax.servlet</groupId>
-          <artifactId>jstl</artifactId>
-          <version>1.2</version>
       </dependency>
       <!-- dom4j -->
       <dependency>
