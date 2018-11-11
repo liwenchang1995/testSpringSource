@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.dao.PersonMapper">
+    <select id="selectPerson"
+            resultType="Person" >
+        SELECT *
+        FROM Person
+        WHERE fdId = #{fdId}
+    </select>
+    <select id="selectPersonByName"
+            resultType="Person">
+        SELECT *
+        FROM Person
+        WHERE fdName = #{fdName}
+    </select>
+    <insert id="insertPerson" parameterType="Person">
+        INSERT INTO Person (fdId,fdName, fdPhoneNumber) VALUES (#{fdId},#{fdName}, #{fdPhoneNumber})
+    </insert>
+    <update id="updatePerson">
+        UPDATE Person
+        SET fdPhoneNumber = #{fdPhoneNumber}
+        WHERE fdId = #{fdId}
+    </update>
+    <delete id="deletePerson">
+        DELETE FROM Person
+        WHERE fdId = #{fdId}
+    </delete>
+</mapper>
