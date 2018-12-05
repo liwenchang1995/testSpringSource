@@ -1,5 +1,7 @@
 package com.liwenchang.test.className;
 
+import org.junit.Test;
+
 /**
  * @author: HIAPAD
  * @date: 2018/10/23 21:50
@@ -40,6 +42,7 @@ public class TestClassName {
      * @auther: HIAPAD
      * @date: 2018/10/23 21:55
      */
+    @Test
     public static void testPrimitiveClassName(){
         int[] intArr = new int[2];
         intArr[0] = 1;

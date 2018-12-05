@@ -27,4 +27,11 @@
         DELETE FROM Person
         WHERE fdId = #{fdId}
     </delete>
+    <resultMap id="" type="">
+        <id ></id>
+        <result ></result>
+    </resultMap>
+    <parameterMap id="" type="">
+        <parameter property="" ></parameter>
+    </parameterMap>
 </mapper>
