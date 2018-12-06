@@ -52,4 +52,11 @@
 
     </bean>
 
+    <!-- 静态工厂实例化-->
+    <bean id="testAlias" abstract="true" name="testAlias testAlias" >
+    </bean>
+
+    <!-- 实例工厂-->
+    <bean id="testInstanceFactory" class="spring.test.TestInstanceFactory"></bean>
+    <bean id="testInstance" factory-bean="testInstanceFactory" factory-method="getInstance"></bean>
 </beans>

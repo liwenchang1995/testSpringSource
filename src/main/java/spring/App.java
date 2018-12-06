@@ -29,7 +29,7 @@ public class App {
         login.add("111");
         login.isAppliedAdvisor();
     }
-    
+
     /**
      *
      * 功能描述: 测试spring基于注解的配置
@@ -45,7 +45,7 @@ public class App {
         IUserService userService = applicationContext.getBean("userService", IUserService.class);
         userService.add();
     }
-    
+
     /**
      *
      * 功能描述: 测试基于构造器注入
@@ -62,4 +62,33 @@ public class App {
         System.out.println(testConstructor);
     }
 
+    /**
+     *
+     * 功能描述: 测试别名循环依赖
+     *
+     * @param: []
+     * @return: void
+     * @auther: HIAPAD
+     * @date: 2018/12/5 22:21
+     */
+    @Test
+    public void testAlias(){
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:spring.xml");
+    }
+
+    /**
+     *
+     * 功能描述: 测试实例工厂构造bean
+     *
+     * @param: []
+     * @return: void
+     * @auther: HIAPAD
+     * @date: 2018/12/5 22:21
+     */
+    @Test
+    public void testInstanceFactory(){
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:spring.xml");
+        Object obj = applicationContext.getBean("testInstance");
+        System.out.println(obj);
+    }
 }

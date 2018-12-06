@@ -19,7 +19,7 @@ public class TestStaticFactory {
      * @date: 2018/12/5 22:43
      */
     public static Object testStaticFactory(){
-        return new TestConstructor("1234",false);
+        return new Student("1234","liwenchang");
     }
 
     public static void main(String[] args) {
