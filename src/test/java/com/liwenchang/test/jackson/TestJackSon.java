@@ -1,5 +1,6 @@
 package com.liwenchang.test.jackson;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
 
@@ -17,13 +18,13 @@ public class TestJackSon {
 
     public static void main(String[] args) throws Exception {
 //        bean2json();
-//        json2bean();
+        json2bean();
 //        list2json();
 //        json2list();
 //        listMap2json();
 //        json2listMap();
 //        complexBean2json();
-        json2complexBean();
+//        json2complexBean();
     }
     
     /**
@@ -55,6 +56,7 @@ public class TestJackSon {
      */
     public static void json2bean() throws IOException{
         ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false);
         ProductBean productBean = objectMapper.readValue(new File("data.txt"), ProductBean.class);
         System.out.println(productBean.toString());
     }

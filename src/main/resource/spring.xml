@@ -11,9 +11,7 @@
        http://www.springframework.org/schema/context/spring-context-3.0.xsd" >
     <bean id="loginService" class="spring.service.imp.LoginService">
         <property name="loginDao" ref="loginDao">
-
         </property>
-
     </bean>
 
     <bean name="loginDao" class="spring.dao.imp.LoginDao">
@@ -43,7 +41,15 @@
         </aop:aspect>
     </aop:config>
 
+    <!-- 基于构造器注入-->
+    <bean id="testConstructor" class="spring.test.TestConstructor">
+        <constructor-arg index="0" value="1234567" type="java.lang.String"></constructor-arg>
+        <constructor-arg index="1" value="true" type="boolean"></constructor-arg>
+    </bean>
 
+    <!-- 静态工厂实例化-->
+    <bean id="testStatic" class="spring.test.TestStaticFactory" factory-method="testStaticFactory">
 
+    </bean>
 
 </beans>

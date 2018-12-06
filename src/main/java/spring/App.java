@@ -1,8 +1,10 @@
 package spring;
 
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import spring.annotation.IUserService;
+import spring.service.imp.LoginService;
 
 /**
  * @author: HIAPAD
@@ -10,17 +12,54 @@ import spring.annotation.IUserService;
  * @description:
  */
 public class App {
-    public static void main( String[] args ){
-//        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:spring.xml");
-//        LoginService login = (LoginService)applicationContext.getBean("loginService");
-//        login.add("111");
-//        login.isAppliedAdvisor();
-        testAnnotation();
+    
+    /**
+     *
+     * 功能描述: 测试spring基于xml的配置
+     *
+     * @param: []
+     * @return: void
+     * @auther: HIAPAD
+     * @date: 2018/12/5 22:12
+     */
+    @Test
+    public void testXml(){
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:spring.xml");
+        LoginService login = (LoginService)applicationContext.getBean("loginService");
+        login.add("111");
+        login.isAppliedAdvisor();
     }
-
-    public static void testAnnotation(){
+    
+    /**
+     *
+     * 功能描述: 测试spring基于注解的配置
+     *
+     * @param: []
+     * @return: void
+     * @auther: HIAPAD
+     * @date: 2018/12/5 22:13
+     */
+    @Test
+    public void testAnnotation(){
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:spring.xml");
         IUserService userService = applicationContext.getBean("userService", IUserService.class);
         userService.add();
     }
+    
+    /**
+     *
+     * 功能描述: 测试基于构造器注入
+     *
+     * @param: []
+     * @return: void
+     * @auther: HIAPAD
+     * @date: 2018/12/5 22:21
+     */
+    @Test
+    public void testConstructor(){
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:spring.xml");
+        Object testConstructor = applicationContext.getBean("testConstructor");
+        System.out.println(testConstructor);
+    }
+
 }
