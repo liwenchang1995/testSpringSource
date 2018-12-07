@@ -59,4 +59,12 @@
     <!-- 实例工厂-->
     <bean id="testInstanceFactory" class="spring.test.TestInstanceFactory"></bean>
     <bean id="testInstance" factory-bean="testInstanceFactory" factory-method="getInstance"></bean>
+
+    <!--测试循环依赖-->
+    <bean id="circleA" class="spring.test.CircleA">
+        <property name="circleB" ref="circleB"></property>
+    </bean>
+    <bean id="circleB" class="spring.test.CircleB">
+        <property name="circleA" ref="circleA"></property>
+    </bean>
 </beans>

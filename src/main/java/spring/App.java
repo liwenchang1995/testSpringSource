@@ -91,4 +91,25 @@ public class App {
         Object obj = applicationContext.getBean("testInstance");
         System.out.println(obj);
     }
+    
+    /**
+     * @Method testCircleRef
+     * @Author admin
+     * @Version  1.0
+     * @Description 测试循环引用
+     * @param 
+     * @Return void
+     * @Exception 
+     * @Date 2018-12-7 16:43
+     */
+    @Test
+    public void testCircleRef(){
+        String[] configLocations = new String[]{"classpath:spring.xml"};
+        //将循环引用设置为false,getBean会报错
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext(configLocations,false);
+        ((ClassPathXmlApplicationContext) applicationContext).setAllowCircularReferences(true);
+        ((ClassPathXmlApplicationContext) applicationContext).refresh();
+        Object obj = applicationContext.getBean("circleA");
+        System.out.println(obj);
+    }
 }

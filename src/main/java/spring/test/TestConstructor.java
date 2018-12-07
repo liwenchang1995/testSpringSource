@@ -35,6 +35,7 @@ public class TestConstructor {
                 '}';
     }
 
+
     public TestConstructor(String fdId, boolean isActive) {
         this.fdId = fdId;
         this.isActive = isActive;
